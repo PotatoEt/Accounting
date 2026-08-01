@@ -22,14 +22,16 @@ if ! command -v python3 &> /dev/null; then
     exit 1
 fi
 
-# 绕过代理（避免网络问题）
+# 绕过代理（系统代理不可用时避免网络问题）
 unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY
 
 # 如果虚拟环境不存在，自动创建
 if [ ! -d ".venv" ]; then
     echo "📦 正在创建虚拟环境..."
-    python3 -m venv --without-pip .venv
-    curl -sS https://bootstrap.pypa.io/get-pip.py | .venv/bin/python
+    python3 -m venv .venv 2>/dev/null || {
+        python3 -m venv --without-pip .venv
+        curl -sS https://bootstrap.pypa.io/get-pip.py | .venv/bin/python
+    }
 fi
 
 # 激活虚拟环境
