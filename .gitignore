@@ -1,0 +1,33 @@
+# Python 虚拟环境（通过 requirements.txt 重建即可）
+.venv/
+
+# Python 缓存文件
+__pycache__/
+*.pyc
+*.pyo
+
+# 个人财务数据（包含真实消费记录，绝对不能提交！）
+data/accounting.db
+
+# IDE 和编辑器配置
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# 系统配置文件（误放在项目目录中的）
+.bash_profile
+.bashrc
+.profile
+.zprofile
+.zshrc
+.gitconfig
+.ripgreprc
+.mcp.json
+.gitmodules
+.claude/
+
+# 系统文件
+.DS_Store
+Thumbs.db
